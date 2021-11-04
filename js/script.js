@@ -48,35 +48,31 @@ const card = document.querySelector('.team-container')
 for (let i = 0; i < members.length; i++){
     const user = members[i]
     // Generazione HTML
-    card.innerHTML += `
-    <div class="team-card">
-        <div class="card-image">
-            <img src="
-            ${user.foto}"
-            />
-        </div>
-        <div class="card-text">
-            <h3>${user.nome}</h3>
-            <p>${user.ruolo}</p>
-        </div>
-    </div>`
+    divGenerator(card, user.foto, user.nome, user.ruolo)
 }
 
 const btn = document.getElementById('addMemberButton')
-
 // aggiunta nuovi membri
+
+// Click
 btn.addEventListener('click' , function(){
+
     const username = document.getElementById('name').value
     const job = document.getElementById('role').value
     const img = document.getElementById('image').value
-
+// Creazione nuovo oggetto
     const newUser = {
         foto: img,
         nome: username,
         ruolo: job,
     }
+    // Aggiunta all'array
     members.push(newUser)
+// Creazione HTML per nuovo utente
+    divGenerator(card, img, username, job)
+})
 
+function divGenerator(card, img, username,job){
     card.innerHTML += `
     <div class="team-card">
         <div class="card-image">
@@ -89,5 +85,6 @@ btn.addEventListener('click' , function(){
             <p>${job}</p>
         </div>
     </div>`
+}
 
-})
+
