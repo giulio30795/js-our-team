@@ -64,12 +64,30 @@ for (let i = 0; i < members.length; i++){
 
 const btn = document.getElementById('addMemberButton')
 
-
+// aggiunta nuovi membri
 btn.addEventListener('click' , function(){
     const username = document.getElementById('name').value
     const job = document.getElementById('role').value
     const img = document.getElementById('image').value
 
-    console.log(username, job, img);
-    
+    const newUser = {
+        foto: img,
+        nome: username,
+        ruolo: job,
+    }
+    members.push(newUser)
+
+    card.innerHTML += `
+    <div class="team-card">
+        <div class="card-image">
+            <img src="
+            ${img}"
+            />
+        </div>
+        <div class="card-text">
+            <h3>${username}</h3>
+            <p>${job}</p>
+        </div>
+    </div>`
+
 })
