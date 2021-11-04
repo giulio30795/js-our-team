@@ -43,24 +43,24 @@ const members = [
 ];
 
 // Iterare sull array per avere i dati
-const card = document.querySelector('.team-container')
+const card = document.querySelector('.team-container');
 
 for (let i = 0; i < members.length; i++){
     const user = members[i]
     // Generazione HTML
-    divGenerator(card, user.foto, user.nome, user.ruolo)
+    divGenerator(card, user.foto, user.nome, user.ruolo);
 }
 
-const btn = document.getElementById('addMemberButton')
+const btn = document.getElementById('addMemberButton');
 // aggiunta nuovi membri
 
 // Click
 btn.addEventListener('click' , function(){
 
-    const username = document.getElementById('name')
-    const job = document.getElementById('role')
-    const img = document.getElementById('image')
-    
+    const username = document.getElementById('name');
+    const job = document.getElementById('role');
+    const img = document.getElementById('image');
+
 // Creazione nuovo oggetto
     const newUser = {
         foto: img.value,
@@ -68,16 +68,15 @@ btn.addEventListener('click' , function(){
         ruolo: job.value,
     }
     // Aggiunta all'array
-    members.push(newUser)
+    members.push(newUser);
 
 // Creazione HTML per nuovo utente
-    divGenerator(card, img.value, username.value, job.value)
+    divGenerator(card, img.value, username.value, job.value);
 
     // Reset
     username.value = ''
     img.value = ''
     job.value = ''
-
 })
 
 // Funzioni
