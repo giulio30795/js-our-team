@@ -42,10 +42,13 @@ const members = [
     },
 ];
 
+// Iterare sull array per avere i dati
 const card = document.querySelector('.team-container')
-    for (let i = 0; i < members.length; i++){
-        const user = members[i]
-        card.innerHTML += `
+
+for (let i = 0; i < members.length; i++){
+    const user = members[i]
+    // Generazione HTML
+    card.innerHTML += `
     <div class="team-card">
         <div class="card-image">
             <img src="
@@ -57,4 +60,16 @@ const card = document.querySelector('.team-container')
             <p>${user.ruolo}</p>
         </div>
     </div>`
-    }
+}
+
+const btn = document.getElementById('addMemberButton')
+
+
+btn.addEventListener('click' , function(){
+    const username = document.getElementById('name').value
+    const job = document.getElementById('role').value
+    const img = document.getElementById('image').value
+
+    console.log(username, job, img);
+    
+})
