@@ -57,20 +57,30 @@ const btn = document.getElementById('addMemberButton')
 // Click
 btn.addEventListener('click' , function(){
 
-    const username = document.getElementById('name').value
-    const job = document.getElementById('role').value
-    const img = document.getElementById('image').value
+    const username = document.getElementById('name')
+    const job = document.getElementById('role')
+    const img = document.getElementById('image')
+    
 // Creazione nuovo oggetto
     const newUser = {
-        foto: img,
-        nome: username,
-        ruolo: job,
+        foto: img.value,
+        nome: username.value,
+        ruolo: job.value,
     }
     // Aggiunta all'array
     members.push(newUser)
+
 // Creazione HTML per nuovo utente
-    divGenerator(card, img, username, job)
+    divGenerator(card, img.value, username.value, job.value)
+
+    // Reset
+    username.value = ''
+    img.value = ''
+    job.value = ''
+
 })
+
+// Funzioni
 
 function divGenerator(card, img, username,job){
     card.innerHTML += `
@@ -86,5 +96,3 @@ function divGenerator(card, img, username,job){
         </div>
     </div>`
 }
-
-
